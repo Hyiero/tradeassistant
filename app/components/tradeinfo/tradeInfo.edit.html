@@ -1,0 +1,23 @@
+<div class="radio">
+    <label><input type="checkbox" name="totalRisk" ng-disabled="tradeInfoCtrl.showStopLoss" ng-model="tradeInfoCtrl.showTotalRiskPercentage">Total Risk</label>
+    <label><input type="checkbox" name="stopLoss" ng-disabled="tradeInfoCtrl.showTotalRiskPercentage" ng-model="tradeInfoCtrl.showStopLoss">Stop Loss</label>
+</div>
+<div class="radio">
+</div>
+
+<label for="capital">Capital: </label>
+<input id="capital" placeholder="Total Capital" type="number" ng-model="tradeInfoCtrl.tradeInfo.capital"/>
+<label for="stockPrice">Stock Price: </label>
+<input id="stockPrice" placeholder="Current Stock Price" type="number" ng-model="tradeInfoCtrl.tradeInfo.stockPrice"/>
+<label for="capitalRisk">Max Capital Risk: </label>
+<input id="capitalRisk" placeholder="Capital Risk %" type="number" ng-model="tradeInfoCtrl.tradeInfo.capitalRiskPercentage"/>
+<div ng-show="tradeInfoCtrl.showTotalRiskPercentage">
+    <label for="totalRisk"> Total Risk: </label>
+    <input id="totalRisk" placeholder="Total Risk %" type="number" ng-model="tradeInfoCtrl.tradeInfo.totalRiskPercentage">
+</div>
+<div ng-show="tradeInfoCtrl.showStopLoss">
+    <label for="stopLoss"> Stop Loss Price: </label>
+    <input id="stopLoss" placeholder="Stop Loss Price" type="number" ng-model="tradeInfoCtrl.tradeInfo.stopLossPrice"/>
+</div>
+<br>
+<button class="btn btn-default" ng-click="tradeInfoCtrl.calculateTradeInformation()">Calculate Trade Elements</button>

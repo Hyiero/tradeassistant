@@ -1,32 +1,14 @@
 /* @ngInject*/
-export default function appController(appService){
+export default function appController($state){
     "use strict";
     let vm = this;
 
-    vm.name = "Welcome to your sample Angular Webpack Seed Project. This is awesome";
-    vm.test = '';
-
-    /**
-     * this is makeGetCall description
-     */
-    vm.makeGetCall = function(){
-        appService.get({id: 1},onSuccess,onFail);
+    vm.$onInit = function(){
+        $state.transitionTo('tradeEdit');
+        console.log("Loading");
     };
 
-    /**
-     * Callback for our get call.
-     * @callback
-     */
-    function onSuccess(data){
-        console.log("Call Succeeded");
-        vm.test = 'Success';
-        console.log(data);
-    }
-
-    function onFail(){
-        console.log("Call Failed");
-        vm.test = 'Fail';
-    }
+    vm.name = "Trade Assistant";
 
     return vm;
 }
